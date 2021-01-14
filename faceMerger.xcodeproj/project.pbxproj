@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9927DDFC25B08DFB002F4A8B /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9927DDFB25B08DFB002F4A8B /* PhotoPreviewView.swift */; };
 		CEADFA8225A5E45800A2A02C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADFA8125A5E45800A2A02C /* AppDelegate.swift */; };
 		CEADFA8425A5E45800A2A02C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADFA8325A5E45800A2A02C /* SceneDelegate.swift */; };
 		CEADFA8625A5E45800A2A02C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADFA8525A5E45800A2A02C /* ContentView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9927DDFB25B08DFB002F4A8B /* PhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewView.swift; sourceTree = "<group>"; };
 		CEADFA7E25A5E45800A2A02C /* faceMerger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = faceMerger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADFA8125A5E45800A2A02C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEADFA8325A5E45800A2A02C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				CEADFA9225A5E45900A2A02C /* Info.plist */,
 				CEADFA8725A5E45800A2A02C /* faceMerger.xcdatamodeld */,
 				CEADFA8C25A5E45900A2A02C /* Preview Content */,
+				9927DDFB25B08DFB002F4A8B /* PhotoPreviewView.swift */,
 			);
 			path = faceMerger;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				CEADFA8225A5E45800A2A02C /* AppDelegate.swift in Sources */,
 				CEADFA8425A5E45800A2A02C /* SceneDelegate.swift in Sources */,
 				CEADFAC025A5E57200A2A02C /* CameraView.swift in Sources */,
+				9927DDFC25B08DFB002F4A8B /* PhotoPreviewView.swift in Sources */,
 				CEADFA8625A5E45800A2A02C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"faceMerger/Preview Content\"";
-				DEVELOPMENT_TEAM = MDT3MZS539;
+				DEVELOPMENT_TEAM = 7N3R7992KZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = faceMerger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -467,7 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"faceMerger/Preview Content\"";
-				DEVELOPMENT_TEAM = MDT3MZS539;
+				DEVELOPMENT_TEAM = 7N3R7992KZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = faceMerger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

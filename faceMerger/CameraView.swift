@@ -60,6 +60,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var pictureDatas = Data([])
     
     @Published var output = AVCapturePhotoOutput()
+    @Published var photoSettings = AVCapturePhotoBracketSettings()
     
     @Published var preview = AVCaptureVideoPreviewLayer()
     
@@ -85,7 +86,22 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func setUp() {
         do {
+            
+            let exposureValues: [Float] = [0, 0, 0, 0]
+            let makeAutoExposureSettings = AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettings(exposureTargetBias:)
+            let exposureSettings = exposureValues.map(makeAutoExposureSettings)
+            
+            photoSettings =
+                AVCapturePhotoBracketSettings(rawPixelFormatType: 0,
+                processedFormat: [AVVideoCodecKey : AVVideoCodecType.hevc],
+                bracketedSettings: exposureSettings)
+            
             self.session.beginConfiguration()
+            self.session.sessionPreset = .photo
+            //self.session.avca
+            
+            
+
             
             if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) {
                 let input = try AVCaptureDeviceInput(device: device)
@@ -97,6 +113,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             
             if self.session.canAddOutput(self.output) {
                 self.session.addOutput(self.output)
+                print("max count \(self.output.maxBracketedCapturePhotoCount)")
             }
             
             self.session.commitConfiguration()
@@ -107,11 +124,15 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func takePic() {
         
-        DispatchQueue.global(qos: .background).async {
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            self.output.capturePhoto(with: self.photoSettings, delegate: self)
             self.session.stopRunning()
             DispatchQueue.main.async {
-                withAnimation{ self.isTaken.toggle() }
+                withAnimation{ //self.isTaken.toggle()
+                    
+                }
             }
         }
     }
@@ -126,11 +147,11 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             if let imageData = photo.fileDataRepresentation() {
                 pictureDatas.append(imageData)
             }
-            session.startRunning()
+            print(pictureDatas.count)
             return
         }
         
-        print(pictureDatas.count)
+        
     }
 }
 
